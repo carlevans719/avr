@@ -1,8 +1,8 @@
 DEVICE  = attiny84
-F_CPU   = 16000000L	# in Hz
+F_CPU   = 1000000L	# in Hz
 # https://www.engbedded.com/conffuse/
-FUSE_L  = 0xce
-FUSE_H  = 0xdf
+FUSE_L  = 0x62
+FUSE_H  = 0xDD
 
 AVRDUDE = avrdude -c buspirate -p $(DEVICE) -P /dev/ttyUSB0  -v
 # AVRDUDE = avrdude -c avrisp -p $(DEVICE) -P /dev/ttyUSB0  -v
