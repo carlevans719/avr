@@ -4,7 +4,9 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/lib/avr/include"
+                "/usr/lib/avr/include",
+                "/usr/local/share/arduino-1.8.16/libraries/**",
+                "/usr/local/share/arduino-1.8.16/hardware/arduino/avr/cores/arduino/"
             ],
             "defines": [
                 "__AVR_ATtiny84__"
