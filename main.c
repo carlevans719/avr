@@ -54,9 +54,7 @@ void turnServoMin() {
     }
 }
 
-int main() {
-    setup();
-
+void handlePinChange() {
     registerValue = PINA & SENSE_BITMASK;
 
     if (registerValue > 0) {
@@ -71,27 +69,17 @@ int main() {
         wdt_reset();
         _delay_ms(5);
     }
+}
+
+int main() {
+    setup();
+
+    handlePinChange();
 
     while (1) {
         if (pinChanged == 1) {
             cli();
-
-            registerValue = PINA & SENSE_BITMASK;
-
-            if (registerValue > 0) {
-                turnServoMin();
-            } else {
-                turnServoMax();
-            }
-
-            pinChanged = 0;
-            registerValue = 0;
-
-            for (int i = 0; i < 500; i++) {
-                wdt_reset();
-                _delay_ms(5);
-            }
-
+            handlePinChange();
             sei();
         }
 
